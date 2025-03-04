@@ -1,13 +1,14 @@
-import { motion } from 'framer-motion';
+import { forwardRef } from "react";
+import { motion } from "framer-motion";
 
 const projects = [
-  { id: 1, name: 'Proyecto 1', description: 'Descripción del proyecto 1' },
-  { id: 2, name: 'Proyecto 2', description: 'Descripción del proyecto 2' },
+  { id: 1, name: "Proyecto 1", description: "Descripción del proyecto 1" },
+  { id: 2, name: "Proyecto 2", description: "Descripción del proyecto 2" },
 ];
 
-export default function Projects() {
+const Projects = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="py-16 bg-black text-white">
+    <div ref={ref} className="py-16 bg-black text-white">
       <h2 className="text-4xl font-mono font-bold text-green-500 text-center mb-8">
         Mis Proyectos
       </h2>
@@ -29,4 +30,8 @@ export default function Projects() {
       </div>
     </div>
   );
-}
+});
+
+Projects.displayName = "Projects"; // Necesario para evitar advertencias de React
+
+export default Projects;

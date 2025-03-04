@@ -1,19 +1,35 @@
+import { useEffect, useState } from "react";
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-export default function Hero() {
+interface HeroProps {
+    scrollToProjects: () => void;
+  }
+
+
+export default function Hero({ scrollToProjects }: HeroProps) {
+
+    const [positions, setPositions] = useState<{ left: string; delay: string }[]>(
+        []
+      );
+
+    useEffect(() => {
+        const newPositions = Array.from({ length: 50 }, () => ({
+            left: `${Math.random() * 100}%`,
+            delay: `${Math.random() * 5}s`,
+        }));
+        setPositions(newPositions);
+    }, []);
+
     return (
         <div className="min-h-screen bg-black text-white flex items-center justify-center relative overflow-hidden p-4">
             {/* Efecto Matrix (líneas de código cayendo) */}
-            <div className="absolute inset-0 overflow-hidden">
-                {[...Array(50)].map((_, i) => (
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {positions.map((pos, i) => (
                     <div
                         key={i}
                         className="absolute top-0 h-2 w-0.5 bg-green-500 animate-fall"
-                        style={{
-                            left: `${Math.random() * 100}%`,
-                            animationDelay: `${Math.random() * 5}s`,
-                        }}
+                        style={{ left: pos.left, animationDelay: pos.delay }}
                     ></div>
                 ))}
             </div>
@@ -33,7 +49,7 @@ export default function Hero() {
                     <p className="text-lg md:text-xl text-gray-300">
                         Desarrollador Frontend | Creando experiencias digitales increíbles
                     </p>
-                    <button className="px-6 py-3 bg-green-500 text-black font-mono font-bold rounded-lg hover:bg-green-400 transition-all hover:shadow-lg hover:shadow-green-500/50 w-fit">
+                    <button  onClick={scrollToProjects}  className="px-6 py-3 bg-green-500 text-black font-mono font-bold rounded-lg hover:bg-green-400 transition-all hover:shadow-lg hover:shadow-green-500/50 w-fit">
                         Ver mis proyectos
                     </button>
                 </motion.div>
