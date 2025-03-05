@@ -12,21 +12,31 @@ export default function Contact() {
         <h2 className="text-4xl font-mono font-bold text-green-500 mb-8">
           Contacto
         </h2>
-        <form className="space-y-6">
+        <form
+          action="https://formspree.io/f/mqaerron"
+          method="POST"
+          className="space-y-6"
+        >
           <input
             type="text"
+            name="name"
             placeholder="Nombre"
             className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            required
           />
           <input
             type="email"
+            name="email"
             placeholder="Correo electrónico"
             className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            required
           />
           <textarea
+            name="message"
             placeholder="Mensaje"
             rows="5"
             className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            required
           ></textarea>
           <button
             type="submit"
@@ -35,6 +45,7 @@ export default function Contact() {
             Enviar
           </button>
         </form>
+
       </motion.div>
     </div>
   );
