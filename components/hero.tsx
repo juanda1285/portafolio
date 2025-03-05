@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 interface HeroProps {
     scrollToProjects: () => void;
-  }
+}
 
 
 export default function Hero({ scrollToProjects }: HeroProps) {
 
     const [positions, setPositions] = useState<{ left: string; delay: string }[]>(
         []
-      );
+    );
 
     useEffect(() => {
         const newPositions = Array.from({ length: 50 }, () => ({
@@ -49,7 +49,7 @@ export default function Hero({ scrollToProjects }: HeroProps) {
                     <p className="text-lg md:text-xl text-gray-300">
                         Desarrollador Frontend | Creando experiencias digitales increíbles
                     </p>
-                    <button  onClick={scrollToProjects}  className="px-6 py-3 bg-green-500 text-black font-mono font-bold rounded-lg hover:bg-green-400 transition-all hover:shadow-lg hover:shadow-green-500/50 w-fit">
+                    <button onClick={scrollToProjects} className="px-6 py-3 bg-green-500 text-black font-mono font-bold rounded-lg hover:bg-green-400 transition-all hover:shadow-lg hover:shadow-green-500/50 w-fit">
                         Ver mis proyectos
                     </button>
                 </motion.div>
@@ -90,6 +90,13 @@ export default function Hero({ scrollToProjects }: HeroProps) {
                             className="text-green-500 hover:text-green-400 transition-all"
                         >
                             <span>LinkedIn</span>
+                        </Link>
+                        <Link
+                            href="/JD_Arias_Frontend_FullStack.pdf"
+                            target="_blank" rel="noopener noreferrer" download
+                            className="text-green-500 hover:text-green-400 transition-all"
+                        >
+                            <span>Descargar CV</span>
                         </Link>
 
                     </div>
