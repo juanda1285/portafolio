@@ -41,7 +41,7 @@ const projects = [
     description: "Desarrollo de E-commerce y WMS (Angular,Flutter,Java SpringBoot)",
     fullDescription:
       "En esta compañia creé una e-commerce (Angular) para venta de productos por medio de subscripciones, aplicación movil en flutter y un WMS (React) para la gestión de inventarios. Este proyecto fue desarrollado con Angular, React, Java SpringBoot, Flutter y AWS.",
-    image: "/planitManager.png",
+    image: "https://i.ibb.co/RTMDJ2Pt/planit-Manager.png",
     achievements: [
       "Integración con API externas(GoogleMaps , Alegra, Twilio , Sendgrid , PayU)",
       "Manejo de estado avanzado",
